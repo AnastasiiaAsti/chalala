@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -40,3 +41,7 @@ def signup(request):
 def chats_index(request):
     chats = Chat.objects.all()
     return render(request,'chats/index.html', {'chats': chats})
+
+class ChatDelete(DeleteView):
+    model = Chat
+    success_url = '/chats/'
