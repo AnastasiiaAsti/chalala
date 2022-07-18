@@ -31,4 +31,7 @@ class Message(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.get_message_display()} on {self.date}"
+        return f"{self.text} on {self.date}"
+
+    class Meta:
+        ordering=['-date']
