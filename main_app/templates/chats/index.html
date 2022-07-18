@@ -3,14 +3,16 @@
 <h1>All Chats</h1>
 <hr />
 
+<a href="{% url 'chats_create' %}">Add a chat</a>
+
 {% for chat in chats %}
-<div><div>
-    <div class = "card"> 
-
-        <p>{{chat.name}}</p>
-        <a href="{% url 'chats_delete' chat.id %}">delete button</a>
-
+<div>
+  <div>
+    <div class="card">
+      <a href="{% url 'chats_detail' chat.id%}">{{chat.name}}</a>
+      <a href="{% url 'chats_delete' chat.id %}">delete </a>
+      <a href="{% url 'chats_update' chat.id %}">update </a>
     </div>
-</div></div>
-{% endfor %}
-{% endblock %}
+  </div>
+</div>
+{% endfor %} {% endblock %}

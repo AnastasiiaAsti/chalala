@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+
+<div>
+  <div>
+    <div class="card">
+      <p>{{chat.name}}</p>
+      <a href="{% url 'chats_delete' chat.id %}">delete button</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
