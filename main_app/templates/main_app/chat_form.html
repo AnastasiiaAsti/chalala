@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %} {%if chat%}
+<h1>Edit <span>{{chat.name}}</span></h1>
+{%else%}
+<h1>Add Chat</h1>
+<p>There are no chats yet</p>
+{%endif%}
+<form action="" method="POST">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  {%if chat %}
+  <input type="submit" value="Update" class="btn" />
+  {%else%}
+  <input type="submit" value="Add" class="btn" />
+  {%endif%}
+</form>
+{% endblock %}
