@@ -21,7 +21,8 @@
                         <a href="{% url 'home'%}" class="text-3xl 783636">&nbsp;&nbsp;CHALALA</a>
                         {% if user.is_authenticated %}
                         <div class="flex md:order-2 space-x-5">
-                        <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow" href="{% url 'about' %}">Profile</a>
+                        <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow" href="{% url 'about' %}">About</a>
+                        <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow" href="{% url 'profile' %}">Profile</a>
                         <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow"href="">Chats</a>
                         <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow"href="{% url 'logout' %}">Log Out</a>
                         {% else %}

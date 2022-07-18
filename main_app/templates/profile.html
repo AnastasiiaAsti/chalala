@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>User's Profile</h1>
+<hr />
+<div class="container">
+    <img src="">
+    <div>
+        <h3>Name: {{profile.name}}</h3>
+        <h3>Email: {{profile.email}}</h3>
+    </div>
+    <div>
+        <h3>Phrase of the Day: {{profile.phrase}}</h3>
+    </div>
+    <div>
+        <input type="button" value="Edit">
+    </div>
+</div>
+
+{% endblock %}
