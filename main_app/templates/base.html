@@ -23,7 +23,7 @@
                         <div class="flex md:order-2 space-x-5">
                         <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow" href="{% url 'about' %}">About</a>
                         <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow" href="{% url 'profile' %}">Profile</a>
-                        <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow"href="">Chats</a>
+                        <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow"href="{% url 'index' %}">Chats</a>
                         <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow"href="{% url 'logout' %}">Log Out</a>
                         {% else %}
                         <a class="bg-red-200 hover:bg-gray-100 py-2 px-4 shadow" href="{% url 'signup' %}">Sign Up</a>

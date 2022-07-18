@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>All Chats</h1>
+<hr />
+
+{% for chat in chats %}
+<div><div>
+    <div class = "card"> 
+
+        <p>{{chat.name}}</p>
+<a href="">delete button</a>
+
+    </div>
+</div></div>
+{% endfor %}
+{% endblock %}
