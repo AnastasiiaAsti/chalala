@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block content %}
+
+<div>
+  <div>
+    <div class="card">
+      <p>{{chat.name}}</p>
+      <a href="{% url 'chats_delete' chat.id %}">delete button</a>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div>
+    <form action="{% url 'add_message' chat.id %}" method="POST">
+      {% csrf_token %} {{ message_form.as_p }}
+      <input type="textarea" />
+      
+      <input
+        type="submit"
+        class="btn waves-effect waves-light btn-large brown lighten-2 right"
+        value="Send"
+      />
+    </form>
+    <table class="">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for message in chat.message_set.all %}
+        <tr>
+          <td>{{message.date}}</td>
+          <td>{{message.text}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
