@@ -34,4 +34,4 @@ class Message(models.Model):
         return f"{self.text} on {self.date}"
 
     class Meta:
-        ordering=['-date']
+        ordering=['date']
