@@ -3,7 +3,49 @@
 <h1 class="mb-10 text-3xl lg:text-6xl text-pink-900">User's Profile</h1>
 <hr />
 <div class="container rounded-xl shadow-2xl bg-stone-200">
-  <img src="" />
+  <img src="{{ user.profile.avatar.url }}" />
+  </div>
+  {% if user_form_errors %}
+  <div role="alert">
+    <div id="form_errors">
+      {% for key, value in user_form.errors.items %}
+      <img class="rounded-circle account-img" src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
+
+        {% endfor %}
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+    <div class="form-content">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="small mb-1">Username:</label>
+                            {{ user_form.username }}
+                        <label class="small mb-1">Email:</label>
+                            {{ user_form.email }}
+                    </div>
+                    <div class="form-group">
+                        <a href="#">Change Password</a>
+                        <hr>
+                        <label class="small mb-1">Change Avatar:</label>
+                        {{ profile_form.avatar }}
+                    </div>
+                    <label class="small mb-1">Bio:</label> {{ profile_form.bio }}
+                </div>
+            </div>
+            <br><br>
+            <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
+            <button type="reset" class="btn btn-dark btn-lg">Reset</button>
+        </form>
+    </div>
+  </div>
+
+  </div>
   <div class="m-5 p-3 rounded-xl bg-stone-100">
     <h3>Name: {{profile.name}}</h3>
     <h3>Email: {{profile.email}}</h3>

@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -14,4 +16,4 @@ urlpatterns = [
     path('chats/<int:chat_id>/add_message/',
          views.add_message, name='add_message')
 
-]
+] + static(settings.MEDIA_URL, document_root='settings.MEDIA_ROOT')
