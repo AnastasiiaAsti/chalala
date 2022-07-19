@@ -6,7 +6,10 @@ from .forms import MessageForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Profile, Chat, Message
+import uuid
+import boto3
+import os
+from .models import Profile, Chat
 
 # Create your views here.
 
@@ -41,31 +44,40 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 
+@login_required
 def chats_index(request):
     chats = Chat.objects.all()
     return render(request, 'chats/index.html', {'chats': chats})
 
 
-def add_message(request, chat_id):
-    form = MessageForm(request.POST)
-    
-    if form.is_valid():
-        new_message = form.save(commit= False)
-        new_message.user = request.user
-        new_message.chat_id = chat_id
-        new_message.save()
-
-    return redirect('chats_detail', chat_id = chat_id)
-
+@login_required
 def chats_detail(request, chat_id):
     chat = Chat.objects.get(id=chat_id)
     message_form = MessageForm()
     return render(request, 'chats/detail.html', {
         'chat': chat,
         'message_form': message_form,
-        
-
     })
+
+
+@login_required
+def add_message(request, chat_id):
+    form = MessageForm(request.POST)
+
+    if form.is_valid():
+        new_message = form.save(commit=False)
+        new_message.user = request.user
+        new_message.chat_id = chat_id
+        new_message.save()
+
+    return redirect('chats_detail', chat_id=chat_id)
+
+
+class ChatCreate(LoginRequiredMixin, CreateView):
+    model = Chat
+    fields = '__all__'
+    success_url = '/chats/'
+
 
 class ChatDelete(LoginRequiredMixin, DeleteView):
     model = Chat
@@ -75,11 +87,7 @@ class ChatDelete(LoginRequiredMixin, DeleteView):
 class ChatUpdate(LoginRequiredMixin, UpdateView):
     model = Chat
     fields = '__all__'
-
-
-class ChatCreate(LoginRequiredMixin, CreateView):
-    model = Chat
-    fields = '__all__'
+    success_url = '/chats/'
 
     def form_valid(self, form):
         form.instance.user = self.request.user

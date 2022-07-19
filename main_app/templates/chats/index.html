@@ -1,18 +1,36 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>All Chats</h1>
-<hr />
+<h1 class="mb-7 text-3xl lg:text-6xl text-pink-900">All Chats</h1>
+<div class="mb-7">
+  <a
+    class="px-5 py-3 rounded-xl bg-red-200 hover:bg-red-300"
+    href="{% url 'chats_create' %}"
+    >ADD CHAT</a
+  >
+</div>
 
-<a href="{% url 'chats_create' %}">Add a chat</a>
-
-{% for chat in chats %}
-<div>
-  <div>
-    <div class="card">
-      <a href="{% url 'chats_detail' chat.id%}">{{chat.name}}</a>
-      <a href="{% url 'chats_delete' chat.id %}">delete </a>
-      <a href="{% url 'chats_update' chat.id %}">update </a>
+<div class="w-full flex flex-wrap items-center">
+  {% for chat in chats %}
+  <div class="w-full lg:w-1/4 px-3 py-3">
+    <div class="p-4 bg-stone-200 shadow-2xl rounded-xl text-center">
+      <a
+        href="{% url 'chats_detail' chat.id%}"
+        class="mb-5 text-2xl hover:text-red-300"
+        >{{chat.name}}</a
+      >
+      <br />
+      <a
+        href="{% url 'chats_delete' chat.id %}"
+        class="m-5 px-6 py-4 block shadow-2xl rounded-xl text-white bg-stone-400 hover:bg-red-300"
+        >delete
+      </a>
+      <a
+        href="{% url 'chats_update' chat.id %}"
+        class="m-5 px-6 py-4 block shadow-2xl rounded-xl text-white bg-stone-400 hover:bg-red-300"
+        >update
+      </a>
     </div>
   </div>
+
+  {% endfor %} {% endblock %}
 </div>
-{% endfor %} {% endblock %}

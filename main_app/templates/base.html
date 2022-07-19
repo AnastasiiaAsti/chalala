@@ -6,43 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Chalala</title>
-    <!--Import Google Icon Font-->
-    <!--Import materialize.css-->
 </head>
-<body class="flex flex-col h-screen">
-        <nav class="px-2 sm:px-4 py-2.5 dark:bg-red-100">
-                    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
-                        <a href="{% url 'home'%}" class="text-3xl 783636">&nbsp;&nbsp;CHALALA</a>
-                        {% if user.is_authenticated %}
-                        <div class="flex md:order-2 space-x-5">
-                        <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow" href="{% url 'about' %}">About</a>
-                        <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow" href="{% url 'profile' %}">Profile</a>
-                        <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow"href="{% url 'index' %}">Chats</a>
-                        <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow"href="{% url 'logout' %}">Log Out</a>
-                        {% else %}
-                        <a class="bg-red-200 hover:bg-gray-100 py-2 px-4 shadow" href="{% url 'signup' %}">Sign Up</a>
-                        <a class="bg-white hover:bg-gray-100 py-2 px-4 shadow" href="{% url 'login' %}">Log In</a>
-                        {% endif %}
-                        </div>
-                    </div>
-            </nav>
-    <main class="container">
+
+<body class="bg-stone-100">
+        <nav class="flex flex-wrap justify-between items-center px-4 py-6 bg-rose-100">
+            <div>
+                <a href="{% url 'home'%}" class="text-3xl text-pink-900">&nbsp;&nbsp;CHALALA</a>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="flex items-center space-x-4">
+                <a class="bg-white rounded-xl hover:bg-red-200 py-3 px-5 shadow-2xl text-pink-900" href="{% url 'about' %}">About</a>
+                <a class="bg-white rounded-xl hover:bg-red-200 py-3 px-5 shadow-2xl text-pink-900" href="{% url 'profile' %}">Profile</a>
+                <a class="bg-white rounded-xl hover:bg-red-200 py-3 px-5 shadow-2xl text-pink-900"href="{% url 'index' %}">Chats</a>
+                <a class="bg-white rounded-xl hover:bg-red-200 py-3 px-5 shadow-2xl text-pink-900"href="{% url 'logout' %}">Log Out</a>
+                {% else %}
+                <a class="bg-red-200 rounded-xl hover:bg-red-300 py-3 px-5 shadow-2xl text-pink-900" href="{% url 'signup' %}">Sign Up</a>
+                <a class="bg-white rounded-xl hover:bg-stone-300 py-3 px-5 shadow-2xl text-pink-900" href="{% url 'login' %}">Log In</a>
+                {% endif %}
+            </div>
+        </nav>
+        
+        <div class="p-10 lg:p-20 text-center text-pink-900">
         {% block content %}
         {% endblock %}
-    </main>
+<div>
     <footer class="text-center
     fixed
     inset-x-0
     bottom-0
     p-4
     dark:bg-red-100">
-        <div class="">All Rights Reserved, &copy; 2022 Asti, Dalton, LC&nbsp;</div>
+        <div class="text-pink-900">All Rights Reserved, &copy; 2022 Asti, Dalton, LC&nbsp;</div>
     </footer>
 </body>
 </html>
