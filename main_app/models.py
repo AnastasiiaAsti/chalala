@@ -10,13 +10,16 @@ class Chat(models.Model):
 
     def get_absolute_url(self):
         return reverse('chats_detail', kwargs={'pk': self.id})
-        
+
+
 # Create your models here.
 class Profile(models.Model):
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     phrase = models.CharField(max_length=1000)
     chats = models.ManyToManyField(Chat)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    avatar = models.ImageField(default='default.jpg', upload_to='profile_images')
 
     def __str__(self):
         return f"{self.name}({self.id})"
