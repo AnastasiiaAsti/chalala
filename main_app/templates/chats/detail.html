@@ -1,43 +1,33 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}{% load tailwind_filters %} {% load crispy_forms_tags
+%} {% block content %}
 
-<div>
-  <div>
-    <div class="card">
-      <p>{{chat.name}}</p>
-      <a href="{% url 'chats_delete' chat.id %}">delete button</a>
+<div class="text center mb-10 text-3xl lg:text-6xl">{{chat.name}}</div>
+
+<div
+  class="mb-5 lg:w-3/4 mx-4 lg:mx-auto p-4 bg-stone-200 shadow-2xl rounded-xl"
+>
+  <div class="chat-messages space-y-3">
+    {% for message in chat.message_set.all %}
+    <div class="p-4 bg-stone-100 rounded-xl">
+      <p class="font-semibold">{{message.date}}</p>
+      <p class="">{{message.text}}</p>
     </div>
+    {% endfor %}
   </div>
 </div>
 
-<div>
-  <div>
-    <table class="">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Message</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for message in chat.message_set.all %}
-        <tr>
-          <td>{{message.date}}</td>
-          <td>{{message.text}}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    <form action="{% url 'add_message' chat.id %}" method="POST">
-      {% csrf_token %} {{ message_form.as_p }}
-      <input type="textarea" />
+<div
+  class="mt-5 lg:w-3/4 mx-4 lg:mx-auto p-4 bg-stone-200 shadow-2xl rounded-xl"
+>
+  <form class="" action="{% url 'add_message' chat.id %}" method="POST">
+    {% csrf_token %} {{ message_form|crispy }}
 
-      <input
-        type="submit"
-        class="px-5 py-3 block shadow rounded-xl bg-red-200 hover:bg-red-300"
-        value="Send"
-      />
-    </form>
-  </div>
+    <input
+      type="submit"
+      class="px-5 py-3 block shadow-2xl rounded-xl bg-red-200 hover:bg-red-300"
+      value="Send"
+    />
+  </form>
 </div>
 
 {% endblock %}
