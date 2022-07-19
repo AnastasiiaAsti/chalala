@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Delete Chat</h1>
+<h1 class="text-3xl lg:text-6xl text-pink-900">Delete Chat</h1>
 
 <h4>
   Are you sure you want to delete
@@ -11,9 +11,11 @@
   <input
     type="submit"
     value="Yes - Delete!"
-    class="btn waves-effect waves-light btn-large brown lighten-2"
+    class="px-5 py-3 block rounded-xl bg-red-200 hover:bg-red-300"
   />
-  <a class="amber-text text-darken-4" href="{% url 'index' %}"
+  <a
+    class="px-5 py-3 rounded-xl bg-red-200 hover:bg-red-300"
+    href="{% url 'index' %}"
     >Cancel</a
   >
 </form>

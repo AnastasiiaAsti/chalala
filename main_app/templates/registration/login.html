@@ -1,17 +1,18 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}{% load tailwind_filters %} {% load crispy_forms_tags
+%} {% block content %}
 
-<h1>Log In</h1>
+<h1 class="text-3xl lg:text-6xl text-pink-900">Log In</h1>
 <div class="flex h-screen justify-center items-center">
-  <div class="w-full max-w-sm">
+  <div class="w-full max-w-7xl mx-auto px-4">
     <form
-      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      class="bg-stone-200 shadow-2xl rounded px-8 pt-6 pb-8 mb-4"
       method="POST"
       action="{% url 'login' %}"
     >
-      {% csrf_token %} {{ form.as_p }}
+      {% csrf_token %} {{ form|crispy }}
       <input
         type="submit"
-        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none hover:bg-red-100 focus:shadow-outline"
+        class="animate-pulse bg-white font-bold py-4 px-6 rounded shadow-2xl hover:bg-red-100"
         value="login"
       />
       <input type="hidden" name="next" value="{{ next }}" />

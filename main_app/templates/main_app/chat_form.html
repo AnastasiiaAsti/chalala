@@ -1,18 +1,28 @@
-{% extends 'base.html' %} {% block content %} {%if chat%}
-<h1>Edit <span>{{chat.name}}</span></h1>
+{% extends 'base.html' %} {% load tailwind_filters %} {% load crispy_forms_tags
+%}{% block content %} {%if chat%}
+<h1 class="mb-10 text-3xl lg:text-6xl text-pink-900">
+  Edit <span class="">{{chat.name}}</span>
+</h1>
 {%else%}
 <h1>Add Chat</h1>
-<p>There are no chats yet</p>
 {%endif%}
 <form action="" method="POST">
   {% csrf_token %}
   <table>
-    {{ form.as_table }}
+    {{ form|crispy }}
   </table>
   {%if chat %}
-  <input type="submit" value="Update" class="btn" />
+  <input
+    type="submit"
+    value="Update"
+    class="px-5 py-3 block rounded-xl bg-red-200 hover:bg-red-300"
+  />
   {%else%}
-  <input type="submit" value="Add" class="btn" />
+  <input
+    type="submit"
+    value="Add"
+    class="px-5 py-3 block rounded-xl bg-red-200 hover:bg-red-300"
+  />
   {%endif%}
 </form>
 {% endblock %}

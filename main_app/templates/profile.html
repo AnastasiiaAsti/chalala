@@ -1,19 +1,23 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>User's Profile</h1>
+<h1 class="mb-10 text-3xl lg:text-6xl text-pink-900">User's Profile</h1>
 <hr />
-<div class="container">
-    <img src="">
-    <div>
-        <h3>Name: {{profile.name}}</h3>
-        <h3>Email: {{profile.email}}</h3>
-    </div>
-    <div>
-        <h3>Phrase of the Day: {{profile.phrase}}</h3>
-    </div>
-    <div>
-        <input type="button" value="Edit">
-    </div>
+<div class="container rounded-xl shadow-2xl bg-stone-200">
+  <img src="" />
+  <div class="m-5 p-3 rounded-xl bg-stone-100">
+    <h3>Name: {{profile.name}}</h3>
+    <h3>Email: {{profile.email}}</h3>
+  </div>
+  <div class="m-5 p-3 rounded-xl bg-stone-100">
+    <h3>Phrase of the Day: {{profile.phrase}}</h3>
+  </div>
+  <div>
+    <input
+      class="m-5 px-5 py-3 rounded-xl bg-red-200 hover:bg-red-300"
+      type="button"
+      value="EDIT"
+    />
+  </div>
 </div>
 
 {% endblock %}
