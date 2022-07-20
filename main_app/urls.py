@@ -16,4 +16,4 @@ urlpatterns = [
     path('chats/<int:chat_id>/add_message/',
          views.add_message, name='add_message')
 
-] + static(settings.MEDIA_URL, document_root='settings.MEDIA_ROOT')
+] + static(settings.MEDIA_URL, document_root='settings.MEDIA_ROOT') + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
