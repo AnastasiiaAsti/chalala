@@ -19,7 +19,7 @@ class Profile(models.Model):
     phrase = models.CharField(max_length=1000)
     chats = models.ManyToManyField(Chat)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(default='default.jpg', upload_to='profile_images')
+    avatar = models.ImageField(upload_to='profile_images')
 
     def __str__(self):
         return f"{self.name}({self.id})"
