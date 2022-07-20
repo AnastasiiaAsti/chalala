@@ -76,7 +76,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'chalala.wsgi.application'
-ASGI_APPLICATION= 'chalala.asgi.application'
+ASGI_APPLICATION = 'chalala.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -134,7 +134,7 @@ LOGIN_REDIRECT_URL = '/about/'
 
 LOGOUT_REDIRECT_URL = '/'
 
-MEDIA_ROOT = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
