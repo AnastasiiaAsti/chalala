@@ -33,18 +33,14 @@ def profile(request):
 def profile_update(request):
     profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
-        user_form=UpdateUserForm(request.POST, instance=request.user)
         profile_form=UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
 
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
+        if profile_form.is_valid():
             profile_form.save()
-            message.success(request,'Your profile was updated.')
             return redirect(to='profile')
     else:
-        user_form=UpdateUserForm(instance=request.user)
         profile_form=UpdateProfileForm(instance=request.user.profile)
-    return render(request, 'main_app/profile_form.html', {'profile': profile, 'user_form': user_form, 'profile_form': profile_form})
+    return render(request, 'main_app/profile_form.html', {'profile': profile, 'profile_form': profile_form})
 
 def signup(request):
     error_message = ''
