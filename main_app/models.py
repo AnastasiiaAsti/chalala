@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from PIL import Image
 
 class Chat(models.Model):
     name = models.CharField(max_length=100)
@@ -19,13 +20,23 @@ class Profile(models.Model):
     phrase = models.CharField(max_length=1000)
     chats = models.ManyToManyField(Chat)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='profile_images')
+    avatar = models.ImageField(upload_to='profile_images/')
 
     def __str__(self):
         return f"{self.name}({self.id})"
     
     def get_absolute_url(self):
         return reverse('profiles_detail', kwargs={'pk': self.id})
+
+    def save(self, *args, **kwargs):
+        super().save()
+
+        img = Image.open(self.avatar.path)
+
+        if img.height > 100 or img.width > 100:
+            new_img = (100, 100)
+            img.thumbnail(new_img)
+            img.save(self.avatar.path)
 
 class Message(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
