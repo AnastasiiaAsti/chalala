@@ -1,8 +1,38 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {%load static%}{% block content %}
+
 
 <h1 class="mb-10 text-3xl lg:text-6xl text-pink-900">User's Profile</h1>
 <hr />
-<div class="container rounded-xl shadow-2xl bg-stone-200">
+<div class="container grid grid-cols-2 rounded-xl shadow-2xl bg-stone-200">
+  <div class="m-5 p-3">
+    <img class="h-auto rounded-full bg-white" src="{% static 'chalala/images/asti.png'%}" />
+  </div>
+<div class="m-5 p-3">
+  <div class="m-5 p-3 rounded-xl bg-stone-100">
+    <h3>Name: {{profile.name}}</h3>
+    <h3>Email: {{profile.email}}</h3>
+  </div>
+  <div class="m-5 p-3 rounded-xl bg-stone-100">
+    <h3>Phrase of the Day: {{profile.phrase}}</h3>
+  </div>
+  <div>
+    <input
+      class="m-5 px-5 py-3 rounded-xl bg-red-200 hover:bg-red-300"
+      type="button"
+      value="EDIT">
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+{% comment %} <div class="container rounded-xl shadow-2xl bg-stone-200">
   <img src="{{ user.profile.avatar.url }}" />
   </div>
   {% if user_form_errors %}
@@ -44,19 +74,8 @@
     </div>
   </div>
 
-  </div>
-  <!-- <div class="m-5 p-3 rounded-xl bg-stone-100">
-    <h3>Name: {{profile.name}}</h3>
-    <h3>Email: {{profile.email}}</h3>
-  </div>
-  <div class="m-5 p-3 rounded-xl bg-stone-100">
-    <h3>Phrase of the Day: {{profile.phrase}}</h3>
-  </div>
-  <div>
-    <input
-      class="m-5 px-5 py-3 rounded-xl bg-red-200 hover:bg-red-300"
-      type="button"
-      value="EDIT"
+  </div> {% endcomment %}
+  <!--
     /> -->
   </div>
 </div>
