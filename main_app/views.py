@@ -26,7 +26,12 @@ def about(request):
 
 @login_required
 def profile(request):
-    profile = Profile.objects.all()
+    profile = Profile.objects.get(user=request.user)
+    return render(request, 'profile.html', {'profile': profile})
+
+@login_required
+def profile_update(request):
+    profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
         user_form=UpdateUserForm(request.POST, instance=request.user)
         profile_form=UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
@@ -39,8 +44,7 @@ def profile(request):
     else:
         user_form=UpdateUserForm(instance=request.user)
         profile_form=UpdateProfileForm(instance=request.user.profile)
-    return render(request, 'profile.html', {'profile': profile, 'user_form':user_form, 'profile_form': profile_form})
-
+    return render(request, 'main_app/profile_form.html', {'profile': profile, 'user_form': user_form, 'profile_form': profile_form})
 
 def signup(request):
     error_message = ''

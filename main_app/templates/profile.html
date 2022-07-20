@@ -5,7 +5,7 @@
 <hr />
 <div class="container grid grid-cols-2 rounded-xl shadow-2xl bg-stone-200">
   <div class="m-5 p-3">
-    <img class="h-auto rounded-full bg-white" src="{% static 'chalala/images/asti.png'%}" />
+    <img class="h-auto rounded-full bg-white" src="{{ user.profile.avatar.url }}" />
   </div>
 <div class="m-5 p-3">
   <div class="m-5 p-3 rounded-xl bg-stone-100">
@@ -16,10 +16,8 @@
     <h3>Phrase of the Day: {{user.profile.phrase}}</h3>
   </div>
   <div>
-    <input
-      class="m-5 px-5 py-3 rounded-xl bg-red-200 hover:bg-red-300"
-      type="button"
-      value="EDIT">
+    <a href="{% url 'profile_update' %}"
+      class="m-5 px-5 py-3 rounded-xl bg-red-200 hover:bg-red-300">Edit</a>
   </div>
 </div>
 </div>
@@ -32,49 +30,7 @@
 
 
 
- <div class="container rounded-xl shadow-2xl bg-stone-200">
-  <img src="{{ user.profile.avatar.url }}" />
-  </div>
-  {% if user_form_errors %}
-  <div role="alert">
-    <div id="form_errors">
-      {% for key, value in user_form.errors.items %}
-      <img class="rounded-circle account-img" src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
-
-        {% endfor %}
-            </div>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    {% endif %}
-    <div class="form-content">
-        <form  method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-row">
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="small mb-1">Name: </label>
-                            {{ profile_form.name }}
-                        <label class="small mb-1">Email:</label>
-                            {{ profile_form.email }}
-                    </div>
-                    <div class="form-group">
-                        <hr>
-                        <label class="small mb-1">Change Avatar:</label>
-                        {{ profile_form.avatar }}
-                    </div>
-                    <label class="small mb-1">Phrase of the Day: </label> {{ profile_form.phrase }}
-                </div>
-            </div>
-            <br><br>
-            <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
-            <button type="reset" class="btn btn-dark btn-lg">Reset</button>
-        </form>
-    </div>
-  </div>
-
-  </div> 
+ 
   <!--
     /> -->
   </div>
