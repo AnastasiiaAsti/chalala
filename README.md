@@ -17,9 +17,11 @@ https://trello.com/b/vWX0TdaZ/chalala-app
 
 <img width="753" alt="Screen Shot 2022-07-21 at 12 30 48 PM" src="https://user-images.githubusercontent.com/97631462/180332581-80eb0726-690b-4f10-b208-e2a697315ad8.png">
 
+<img width="753" alt="Screen Shot 2022-07-21 at 4 50 02 PM" src="https://user-images.githubusercontent.com/97631462/180333320-1f5d71fc-3687-4a26-bbaa-f36e6754d5f6.png">
+<img width="753" alt="Screen Shot 2022-07-21 at 4 50 20 PM" src="https://user-images.githubusercontent.com/97631462/180333329-54fa1ebc-bd33-4646-8930-559f064e8d36.png">
 
-<img width="740" alt="Screen Shot 2022-07-20 at 10 35 40 AM" src="https://user-images.githubusercontent.com/97631462/180095772-50428fc6-85be-4f04-85d0-2d020e31bc69.png">
-<img width="753" alt="Screen Shot 2022-07-20 at 3 43 34 PM" src="https://user-images.githubusercontent.com/97631462/180095779-912759f9-f48f-4a87-9a6f-141ce56b65e7.png">
+
+
 <img width="753" alt="Screen Shot 2022-07-21 at 4 47 24 PM" src="https://user-images.githubusercontent.com/97631462/180333121-23c7bbf5-6b9a-4d21-8a62-669a3f3cc755.png">
 
 
