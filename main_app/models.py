@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from PIL import Image
 
+
 class Chat(models.Model):
     name = models.CharField(max_length=100)
 
@@ -20,11 +21,12 @@ class Profile(models.Model):
     phrase = models.CharField(max_length=1000)
     chats = models.ManyToManyField(Chat)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='profile_images/')
+    avatar = models.ImageField(
+        upload_to='profile_images/', default='default.webp')
 
     def __str__(self):
         return f"{self.name}({self.id})"
-    
+
     def get_absolute_url(self):
         return reverse('profiles_detail', kwargs={'pk': self.id})
 
@@ -38,6 +40,7 @@ class Profile(models.Model):
             img.thumbnail(new_img)
             img.save(self.avatar.path)
 
+
 class Message(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
@@ -48,4 +51,4 @@ class Message(models.Model):
         return f"{self.text} on {self.date}"
 
     class Meta:
-        ordering=['date']
+        ordering = ['date']

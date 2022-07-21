@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load tailwind_filters %} {% load crispy_forms_tags %}{% block content %}
 
-<div class="container rounded-xl shadow-2xl bg-stone-200">
-</div>
+{% if profile %}
+
 {% if user_form_errors %}
 <div role="alert">
   <div id="form_errors">
@@ -35,7 +35,29 @@
           <button type="submit" class="px-5 py-3 rounded-xl bg-red-200 hover:bg-red-300">Save Changes</button>
       </form>
   </div>
-</div>
+</div> 
 
-</div>
+
+
+{%else%}
+
+
+
+<h1 class="mb-10 text-3xl lg:text-6xl text-pink-900">
+    Add Profiile
+  </h1>
+  
+  <form action="" method="POST">
+    {% csrf_token %}
+    <table>
+      {{ form|crispy }}
+    </table>
+    <input
+      type="submit"
+      value="Add"
+      class="px-5 py-3 block rounded-xl bg-red-200 hover:bg-red-300"
+    />
+  </form>
+
+{%endif%}
 {% endblock %}
