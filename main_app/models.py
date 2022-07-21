@@ -18,7 +18,7 @@ class Chat(models.Model):
 class Profile(models.Model):
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
-    phrase = models.CharField(max_length=1000)
+    phrase = models.CharField(max_length=300)
     chats = models.ManyToManyField(Chat)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(
