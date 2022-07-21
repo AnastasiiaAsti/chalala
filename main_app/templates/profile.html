@@ -1,19 +1,19 @@
 {% extends 'base.html' %} {%load static%}{% block content %}
 
 
-<h1 class="mb-10 text-3xl lg:text-6xl text-pink-900">User's Profile</h1>
-<hr />
-<div class="container grid grid-cols-2 rounded-xl shadow-2xl bg-stone-200">
+<h1 class="mb-10 text-3xl lg:text-6xl text-pink-900">Profile</h1>
+
+<div class="container grid grid-cols-1 md:grid-cols-2 rounded-xl shadow-2xl bg-stone-200">
   <div class="m-5 p-3">
     <img class="h-auto rounded-full bg-white w-10/12" src="{{ user.profile.avatar.url }}" />
   </div>
 <div class="m-5 p-3">
-  <div class="m-5 p-3 rounded-xl bg-stone-100">
-    <h3>Name: {{user.profile.name}}</h3>
-    <h3>Email: {{user.profile.email}}</h3>
+  <div class="text-left m-5 p-3 rounded-xl bg-stone-100">
+    <h3>Name: <span class="font-bold">{{user.profile.name}}</span></h3>
+    <h3>Email: <span class="font-bold">{{user.profile.email}}</span></h3>
   </div>
-  <div class="m-5 p-3 rounded-xl bg-stone-100">
-    <h3>Phrase of the Day: {{user.profile.phrase}}</h3>
+  <div class="text-left m-5 p-3 rounded-xl bg-stone-100">
+    <h3>Phrase of the Day: <span class="font-bold">{{user.profile.phrase}}</span></h3>
   </div>
   <div>
     <a href="{% url 'profile_update' %}"

@@ -1,7 +1,9 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}{%load static%} {% block content %}
 
-<h1 class="mt-10 text-3xl lg:text-6xl text-pink-900 animate-pulse">
+<h1 class="mt-10 mb-10 text-3xl lg:text-6xl text-pink-900 animate-pulse">
   Welcome to Chalala App!
 </h1>
+
+<div class="m-10 hover:animate-pulse"><img src="{% static 'chalala/images/home.png'%}" alt=""></div>
 
 {% endblock %}
