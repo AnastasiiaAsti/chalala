@@ -9,6 +9,7 @@
   <div class="chat-messages space-y-3">
     {% for message in chat.message_set.all %}
     <div class="p-4 bg-stone-100 rounded-xl">
+      <p>{{user.profile.name}}</p>
       <p class="font-semibold">{{message.date}}</p>
       <p class="">{{message.text}}</p>
     </div>
