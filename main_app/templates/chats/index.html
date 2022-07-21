@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1 class="mb-7 text-3xl lg:text-6xl text-pink-900">All Chats</h1>
-<div class="mb-7">
+<h1 class="mb-10 text-3xl lg:text-6xl text-pink-900">All Chats</h1>
+<div class="mb-10">
   <a
     class="px-5 py-3 rounded-xl bg-red-200 hover:bg-red-300"
     href="{% url 'chats_create' %}"
@@ -15,7 +15,7 @@
     <div class="p-4 bg-stone-200 shadow-2xl rounded-xl text-center">
       <a
         href="{% url 'chats_detail' chat.id%}"
-        class="mb-5 text-2xl hover:text-red-300 hover:animate-pulse"
+        class="mb-5 text-2xl hover:text-red-300 uppercase hover:animate-pulse"
         >{{chat.name}}</a
       >
       <br />

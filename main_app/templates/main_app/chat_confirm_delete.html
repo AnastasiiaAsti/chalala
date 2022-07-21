@@ -1,17 +1,17 @@
 {% extends 'base.html' %} {% block content %}
-<h1 class="text-3xl lg:text-6xl text-pink-900">Delete Chat</h1>
+<h1 class="mb-10 text-3xl lg:text-6xl text-pink-900">Delete Chat</h1>
 
-<h4>
+<h4 class="mb-10">
   Are you sure you want to delete
   <span class="amber-text text-darken-4">{{ chat.name }}</span>?
 </h4>
 
-<form action="" method="POST">
+<form class="bg-stone-200 shadow-md rounded px-8 pt-6 pb-8 mb-4" action="" method="POST">
   {% csrf_token %}
   <input
     type="submit"
     value="Yes - Delete!"
-    class="px-5 py-3 block rounded-xl bg-red-200 hover:bg-red-300"
+    class="px-5 py-3  rounded-xl bg-red-200 hover:bg-red-300"
   />
   <a
     class="px-5 py-3 rounded-xl bg-red-200 hover:bg-red-300"

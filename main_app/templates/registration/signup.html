@@ -1,9 +1,9 @@
 {% extends 'base.html' %} {% load tailwind_filters %} {% load crispy_forms_tags
 %}{% block content %}
 
-<h1 class="text-3xl lg:text-6xl text-pink-900">Sign Up</h1>
+<h1 class="mb-10 text-3xl lg:text-6xl text-pink-900">Sign Up</h1>
 
-<div class="flex h-screen justify-center items-center">
+<div class="flex h-screen justify-center">
   <div class="w-full max-w-7xl mx-auto px-4">
     {% if error_message %}
     <p class="red-text">{{ error_message }}</p>

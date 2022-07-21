@@ -16,27 +16,24 @@
       </div>
   {% endif %}
   <div class="form-content">
-      <form  method="post" enctype="multipart/form-data">
+      <form class="bg-stone-200 shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post" enctype="multipart/form-data">
           {% csrf_token %}
-          <div class="form-row">
-              <div class="col-md-5">
-                  <div class="form-group">
-                      <label class="small mb-1">Name: </label>
+              <div class="mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2">Name: </label>
                           {{ profile_form.name }}
-                      <label class="small mb-1">Email:</label>
+                      <label class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
                           {{ profile_form.email }}
                   </div>
-                  <div class="form-group">
+                  <div class="mb-6">
                       <hr>
-                      <label class="small mb-1">Change Avatar:</label>
+                      <label class="block text-gray-700 text-sm font-bold mb-2">Change Avatar:</label>
                       {{ profile_form.avatar }}
                   </div>
-                  <label class="small mb-1">Phrase of the Day: </label> {{ profile_form.phrase }}
-              </div>
-          </div>
+                  <label class="block text-gray-700 text-sm font-bold mb-2">Phrase of the Day: </label> {{ profile_form.phrase }}
+  
           <br><br>
-          <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
-          <button type="reset" class="btn btn-dark btn-lg">Reset</button>
+          <button type="submit" class="px-5 py-3 rounded-xl bg-red-200 hover:bg-red-300">Save Changes</button>
+          <button type="reset" class="px-5 py-3 rounded-xl bg-red-200 hover:bg-red-300">Reset</button>
       </form>
   </div>
 </div>
