@@ -22,7 +22,11 @@
             {% if user.is_authenticated %}
             <div class="flex items-center space-x-4">
                 <a class="bg-white rounded-xl hover:bg-red-200 py-3 px-5 shadow-2xl text-pink-900" href="{% url 'about' %}">About</a>
+                {%if user.profile %}
                 <a class="bg-white rounded-xl hover:bg-red-200 py-3 px-5 shadow-2xl text-pink-900" href="{% url 'profile' %}">Profile</a>
+                {%else%}
+                <a class="bg-white rounded-xl hover:bg-red-200 py-3 px-5 shadow-2xl text-pink-900" href="{% url 'profile_create' %}">Create Profile</a>
+                {%endif%}
                 <a class="bg-white rounded-xl hover:bg-red-200 py-3 px-5 shadow-2xl text-pink-900"href="{% url 'index' %}">Chats</a>
                 <a class="bg-white rounded-xl hover:bg-red-200 py-3 px-5 shadow-2xl text-pink-900"href="{% url 'logout' %}">Log Out</a>
                 {% else %}

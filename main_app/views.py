@@ -29,18 +29,21 @@ def profile(request):
     profile = Profile.objects.get(user=request.user)
     return render(request, 'profile.html', {'profile': profile})
 
+
 @login_required
 def profile_update(request):
     profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
-        profile_form=UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        profile_form = UpdateProfileForm(
+            request.POST, request.FILES, instance=request.user.profile)
 
         if profile_form.is_valid():
             profile_form.save()
             return redirect(to='profile')
     else:
-        profile_form=UpdateProfileForm(instance=request.user.profile)
+        profile_form = UpdateProfileForm(instance=request.user.profile)
     return render(request, 'main_app/profile_form.html', {'profile': profile, 'profile_form': profile_form})
+
 
 def signup(request):
     error_message = ''
@@ -85,6 +88,15 @@ def add_message(request, chat_id):
 
     return redirect('chats_detail', chat_id=chat_id)
 
+
+class ProfileCreate(LoginRequiredMixin, CreateView):
+    model = Profile
+    fields = ['name', 'email', 'phrase']
+    success_url = '/profile/'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class ChatCreate(LoginRequiredMixin, CreateView):
