@@ -34,3 +34,4 @@ https://trello.com/b/vWX0TdaZ/chalala-app
 - allow users to view other user's rooms and join them
 - allow user to like other user's messages
 - allow to delete and resend messages
+- allow automatic refresh for the chat
