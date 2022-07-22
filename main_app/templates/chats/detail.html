@@ -20,6 +20,7 @@
 <div
   class="mt-5 lg:w-3/4 mx-4 lg:mx-auto p-4 bg-stone-200 shadow-2xl rounded-xl"
 >
+{%if user.profile%}
   <form class="" action="{% url 'add_message' chat.id %}" method="POST">
     {% csrf_token %} {{ message_form|crispy }}
 
@@ -29,6 +30,9 @@
       value="Send"
     />
   </form>
+  {%else%}
+  <p>Please create a profile to send messages</p>
+  {%endif%}
 </div>
 
 {% endblock %}
