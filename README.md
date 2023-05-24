@@ -1,23 +1,25 @@
-# CHALALA APP
+# CHALALA
 
-A responsive full-stack application that lets a user open chat rooms and send messages
+Welcome to Chalala: Your Gateway to Meaningful Conversations! A responsive full-stack application that lets a user open chat rooms and send messages.
 
-# get started:
+Chalala is a vibrant and inclusive chatroom app that brings people together from all walks of life. Whether you're looking to make new friends, engage in lively discussions, or find like-minded individuals, ChatConnect is your go-to platform for building connections and fostering a sense of community.
 
-Link:
+Step into our virtual chatrooms, where you'll discover a diverse range of topics and interests to explore. Engage in conversations about sports, movies, books, technology, or delve into deeper discussions about philosophy, current events, or personal growth. With ChatConnect, there's always a chatroom that aligns with your passions.
 
-https://chalala-app.herokuapp.com/
+Connect with people from around the world who share your interests or have different perspectives. ChatConnect encourages respectful dialogue and open-mindedness, creating an environment where you can learn, share, and grow alongside a vibrant community of individuals who are eager to connect.
 
-Trello:
+# Get started:
 
-https://trello.com/b/vWX0TdaZ/chalala-app
+Check it out <a href="https://chalala-app.herokuapp.com/">HERE</a>
+Here is out <a href="https://trello.com/b/vWX0TdaZ/chalala-app">TRELLO</a> if you feel like snooping aroud ;)
 
-<img width="1425" alt="Screen Shot 2022-07-22 at 9 17 36 AM" src="https://user-images.githubusercontent.com/97631462/180481477-a320bef1-e446-492c-9af4-961d8351b060.png">
+# Tech used:
 
+- Python</br>
+- Django</br>
+- TailWind</br>
+- PostgreSQL</br>
 
-
-
-# screenshots
 
 
 <img width="753" alt="Screen Shot 2022-07-21 at 12 30 48 PM" src="https://user-images.githubusercontent.com/97631462/180332581-80eb0726-690b-4f10-b208-e2a697315ad8.png">
@@ -29,13 +31,6 @@ https://trello.com/b/vWX0TdaZ/chalala-app
 
 <img width="753" alt="Screen Shot 2022-07-21 at 4 47 24 PM" src="https://user-images.githubusercontent.com/97631462/180333121-23c7bbf5-6b9a-4d21-8a62-669a3f3cc755.png">
 
-
-# Technology used:
-
-- Python</br>
-- Django</br>
-- TailWind</br>
-- PostgreSQL</br>
 
 # ERD
 
